@@ -2,41 +2,92 @@
 <html lang="en">
   <head>
     <%- include('./partials/head') %>
-    <title>Add New Blog</title>
+    <title>Write a Story | Blogify</title>
   </head>
-  <body>
+
+  <body class="bg-body-tertiary d-flex flex-column min-vh-100">
     <%- include('./partials/nav') %>
 
-    <div class="container mt-3">
-      <form action="/blog" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="coverImage" class="form-label">Cover Image</label>
-          <input
-            type="file"
-            class="form-control"
-            id="coverImage"
-            name="coverImage"
-            aria-describedby="coverImage"
-          />
+    <div class="container py-5 flex-grow-1">
+      <div class="text-center mb-5">
+        <div
+          class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex p-3 mb-3 shadow-sm"
+        >
+          <i class="bi bi-pencil-square fs-3"></i>
         </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            name="title"
-            aria-describedby="title"
-          />
+        <h2 class="fw-bold mb-1 text-body-emphasis">Write a New Story</h2>
+        <p class="text-body-secondary">
+          Share your ideas, insights, and knowledge with the world
+        </p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+              <form action="/blog" method="post" enctype="multipart/form-data">
+                <div
+                  class="mb-4 bg-body-tertiary p-4 rounded-4 border border-secondary-subtle"
+                >
+                  <label
+                    for="coverImage"
+                    class="form-label fw-semibold text-body-emphasis mb-2 d-flex align-items-center gap-2"
+                  >
+                    <i class="bi bi-image text-primary"></i> Cover Image
+                  </label>
+                  <input
+                    type="file"
+                    class="form-control form-control-lg rounded-3 shadow-none border-secondary-subtle"
+                    id="coverImage"
+                    name="coverImage"
+                  />
+                  <div class="form-text small mt-2">
+                    <i class="bi bi-info-circle me-1"></i> Upload a
+                    high-resolution image to make your article stand out.
+                  </div>
+                </div>
+
+                <div class="form-floating mb-4">
+                  <input
+                    type="text"
+                    class="form-control rounded-3 border-secondary-subtle"
+                    id="title"
+                    name="title"
+                    placeholder="Enter blog title"
+                    required
+                  />
+                  <label for="title" class="text-body-secondary"
+                    >Blog Title</label
+                  >
+                </div>
+
+                <div class="form-floating mb-4">
+                  <textarea
+                    name="body"
+                    class="form-control rounded-3 border-secondary-subtle"
+                    id="body"
+                    placeholder="Write your blog here..."
+                    style="height: 350px; resize: none"
+                    required
+                  ></textarea>
+                  <label for="body" class="text-body-secondary"
+                    >Tell your story...</label
+                  >
+                </div>
+
+                <div class="d-grid mt-5">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-lg rounded-pill fw-medium shadow-sm d-flex align-items-center justify-content-center gap-2 py-3"
+                  >
+                    Publish Story <i class="bi bi-send-fill"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="body">Body</label>
-          <textarea name="body" class="form-control" id="body"></textarea>
-        </div>
-        <div class="mb-3">
-          <button class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+      </div>
     </div>
 
     <%- include('./partials/scripts') %>
